@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://essencia-entre-mentes.theodoroeporto.chatgpt.site/sitemap.xml

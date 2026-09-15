@@ -1,7 +1,7 @@
-const menuButton = document.querySelector('.menu');
-const mobileNav = document.getElementById('mobile-nav');
-function closeMenu() { mobileNav.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Abrir menu'); menuButton.textContent = '☰'; }
-menuButton.addEventListener('click', () => { const expanded = menuButton.getAttribute('aria-expanded') === 'true'; mobileNav.hidden = expanded; menuButton.setAttribute('aria-expanded', String(!expanded)); menuButton.setAttribute('aria-label', expanded ? 'Abrir menu' : 'Fechar menu'); menuButton.textContent = expanded ? '☰' : '×'; });
-mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && !mobileNav.hidden) { closeMenu(); menuButton.focus(); } });
-window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
+document.documentElement.classList.add('js');
+const menuButton=document.querySelector('.menu');const mobileNav=document.getElementById('mobile-nav');
+function closeMenu(){mobileNav.hidden=true;menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Abrir menu');menuButton.querySelector('span').textContent='☰'}
+menuButton.addEventListener('click',()=>{const expanded=menuButton.getAttribute('aria-expanded')==='true';mobileNav.hidden=expanded;menuButton.setAttribute('aria-expanded',String(!expanded));menuButton.setAttribute('aria-label',expanded?'Abrir menu':'Fechar menu');menuButton.querySelector('span').textContent=expanded?'☰':'×'});
+mobileNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus()}});window.matchMedia('(min-width: 801px)').addEventListener('change',closeMenu);
+const revealItems=document.querySelectorAll('.reveal');if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -30px'});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('visible'))}
+document.querySelectorAll('.faq-list details').forEach(detail=>{detail.addEventListener('toggle',()=>{if(!detail.open)return;document.querySelectorAll('.faq-list details[open]').forEach(openDetail=>{if(openDetail!==detail)openDetail.open=false})})});
