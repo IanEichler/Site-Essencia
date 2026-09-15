@@ -255,6 +255,10 @@ footer { padding: 44px 0 22px; background: var(--purple-deep); color: #fff; }
   .menu { position: absolute; right: 0; display: block; margin: 0; }
   .hero::before { display: none; }
   .hero-grid { grid-template-columns: 1fr; gap: 44px; min-height: auto; padding-top: 58px; padding-bottom: 64px; }
+  .hero-copy { text-align: center; }
+  .hero-copy .eyebrow, .hero-copy .location-line { justify-content: center; }
+  .hero-copy .intro { margin-right: auto; margin-left: auto; }
+  .hero-copy .hero-actions { justify-content: center; }
   .hero h1 { max-width: 620px; font-size: clamp(45px, 12.5vw, 66px); }
   .hero-visual { min-height: 540px; }
   .photo-frame { inset: -4px 4% -44px; }
@@ -304,8 +308,9 @@ footer { padding: 44px 0 22px; background: var(--purple-deep); color: #fff; }
   .hero-grid { padding-top: 44px; }
   .hero h1 { font-size: 44px; line-height: 1.08; }
   .intro { font-size: 15px; }
-  .hero-actions { align-items: stretch; flex-direction: column; }
+  .hero-actions { align-items: center; flex-direction: column; }
   .hero-actions .button { width: 100%; }
+  .hero-actions .text-link { align-self: center; }
   .hero-visual { min-height: 445px; }
   .photo-frame { inset: 0 -2% -42px; }
   .photo-frame img { top: -36%; right: -8%; width: 230%; }
