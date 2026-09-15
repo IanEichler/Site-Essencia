@@ -98,3 +98,29 @@ function requestScrollUiUpdate() {
 window.addEventListener('scroll', requestScrollUiUpdate, { passive: true });
 window.addEventListener('resize', requestScrollUiUpdate);
 updateScrollUi();
+
+const mapElement = document.getElementById('clinic-map');
+if (mapElement && window.L) {
+  const clinicPosition = [-16.4772504, -54.6247773];
+  const clinicMap = L.map(mapElement, {
+    scrollWheelZoom: false,
+    zoomControl: true,
+  }).setView(clinicPosition, 16);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>',
+  }).addTo(clinicMap);
+
+  const clinicIcon = L.divIcon({
+    className: '',
+    html: '<span class="clinic-map-marker" aria-hidden="true"></span>',
+    iconSize: [42, 42],
+    iconAnchor: [21, 42],
+    popupAnchor: [0, -42],
+  });
+
+  L.marker(clinicPosition, { icon: clinicIcon, title: 'Essência Entre Mentes' })
+    .addTo(clinicMap)
+    .bindPopup('<strong>Essência Entre Mentes</strong><br>Avenida Duque de Caxias, 1625<br>Rondonópolis · MT');
+}
