@@ -1,0 +1,12 @@
+{
+  "name": "site-essencia-entre-mentes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional da Essência Entre Mentes.",
+  "scripts": {
+    "build": "node scripts/prepare-vercel.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
