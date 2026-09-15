@@ -3,6 +3,13 @@ document.documentElement.classList.add('js');
 const menuButton = document.querySelector('.menu');
 const mobileNav = document.getElementById('mobile-nav');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const demoModal = document.querySelector('.demo-modal');
+const demoCloseButton = document.querySelector('.demo-close');
+
+if (demoModal && typeof demoModal.showModal === 'function') {
+  demoModal.showModal();
+  demoCloseButton.addEventListener('click', () => demoModal.close());
+}
 
 function closeMenu() {
   mobileNav.hidden = true;
